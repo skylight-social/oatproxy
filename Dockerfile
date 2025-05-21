@@ -14,7 +14,7 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN make
+RUN make && chmod +x /app/oatproxy
 
 # Final stage
 FROM alpine:latest
@@ -29,6 +29,7 @@ RUN apk add --no-cache ca-certificates tzdata
 
 # Copy the binary from builder
 COPY --from=builder /app/oatproxy /app/oatproxy
+RUN chmod +x /app/oatproxy
 
 # Expose the default port
 EXPOSE 8080
