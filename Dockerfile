@@ -4,7 +4,7 @@ FROM golang:latest AS builder
 WORKDIR /app
 
 # Install build dependencies
-RUN apk add --no-cache make git
+RUN apt-get update && apt-get install -y make git && rm -rf /var/lib/apt/lists/*
 
 # Copy go mod files
 COPY go.mod go.sum ./
