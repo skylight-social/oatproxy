@@ -1,0 +1,10 @@
+{
+  "client_name": "Skylight",
+  "client_uri": "https://skylight.social",
+  "policy_uri": "https://about.skylight.social",
+  "tos_uri": "https://about.skylight.social/terms-of-service",
+  "logo_uri": "https://skylight.social/assets/assets/images/login-gradient-logo.png",
+  "redirect_uris": ["https://skylight.social/app-return/android"],
+  "scope": "atproto transition:generic",
+  "contacts": ["tori.skylight.social@gmail.com"]
+}
