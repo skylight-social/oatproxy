@@ -66,13 +66,6 @@ func New(conf *Config) *OATProxy {
 	o.Echo.GET("/oauth/upstream/client-metadata.json", o.HandleClientMetadataUpstream)
 	o.Echo.GET("/oauth/upstream/jwks.json", o.HandleJwksUpstream)
 	o.Echo.GET("/oauth/downstream/client-metadata.json", o.HandleClientMetadataDownstream)
-	o.Echo.GET("/app-return/android", func(c echo.Context) error {
-		redirectURL := "https://skylight.social/app-return/android"
-		if len(c.QueryParams()) > 0 {
-			redirectURL += "?" + c.Request().URL.RawQuery
-		}
-		return c.Redirect(http.StatusTemporaryRedirect, redirectURL)
-	})
 	o.Echo.Any("/xrpc/*", o.OAuthMiddleware(o.HandleWildcard))
 	o.Echo.Use(o.ErrorHandlingMiddleware)
 	return o
